@@ -11,9 +11,9 @@
 #### Tech Stack
 
 - Golang
-- Gofiber
 - Redis
 - Nginx
+- GCP
 
 #### Todo
 

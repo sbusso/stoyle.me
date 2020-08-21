@@ -12,8 +12,6 @@
 
 - Golang
 - Redis
-- Nginx
-- GCP
 
 #### Todo
 

@@ -27,8 +27,9 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Csrf-Token': getCookie("csrf_"),
+                'X-CSRF-Token': getCookie("csrf_"),
             },
+            credentials: "same-origin",
             body: JSON.stringify({url, short, expires})
         })
         .then((res) => (res.json()))
@@ -51,8 +52,9 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Csrf-Token': getCookie("csrf_"),
+                'X-CSRF-Token': getCookie("csrf_"),
             },
+            credentials: "same-origin",
             body: JSON.stringify({short})
         })
         .then((res) => (res.json()))

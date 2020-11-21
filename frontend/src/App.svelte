@@ -127,6 +127,7 @@
         background-color: #ffffff;
         padding-top: 2.5em;
         padding-bottom: 5em;
+        box-shadow: #666666;
     }
     .card {
         text-align: center;
@@ -237,7 +238,7 @@
 </div>
 
 
-<div class="container outer">
+<div class="container outer shadow-lg p-3 mb-5 bg-white rounded">
     <form id="form" autocomplete="off">
         <!-- Define the URL input here -->
             <label for="url">Your URL</label>

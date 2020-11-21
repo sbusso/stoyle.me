@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	db "github.com/amalshaji/stoyle.me/database"
 	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
@@ -77,6 +76,5 @@ func ResolveShort(c *fiber.Ctx) error {
 	if err == redis.Nil {
 		return c.Redirect("https://stoyle.me", 302)
 	}
-	fmt.Println(v)
 	return c.Redirect(v, 302)
 }

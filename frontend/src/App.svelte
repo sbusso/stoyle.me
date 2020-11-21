@@ -23,7 +23,7 @@
         }
 
         loading = true;
-        fetch("http://localhost:3000/api/shorten", {
+        fetch("/api/shorten", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +48,7 @@
     const checkAvailability = () => {
         availLoading = true;
 
-        fetch("http://localhost:3000/api/checkavailability", {
+        fetch("/api/checkavailability", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

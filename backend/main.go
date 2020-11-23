@@ -12,6 +12,7 @@ import (
 	"github.com/joho/godotenv"
 	"log"
 	"os"
+	"strings"
 )
 
 func setupMiddlewares(app *fiber.App) {
@@ -25,7 +26,12 @@ func setupMiddlewares(app *fiber.App) {
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Render("index", nil)
+		tokens := string(c.Response().Header.PeekCookie("csrf_"))
+		token := strings.Split(tokens, ";")[0]
+		token = strings.Split(token, "=")[1]
+		return c.Render("index", fiber.Map{
+			"Token": token,
+		})
 	})
 
 	app.Post("/api/checkavailability", handlers.CheckAvailability)

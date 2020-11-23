@@ -15,6 +15,8 @@
 
     let shortIsAvailable = false;
 
+    let csrf = document.getElementsByName("csrf_token")[0].content;
+
     const load = () => {
         let u = new URL(url)
         if (u.hostname.includes("stoyle.me")) {
@@ -27,7 +29,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-Token': getCookie("csrf_"),
+                'X-CSRF-Token': csrf,
             },
             credentials: "same-origin",
             body: JSON.stringify({url, short, expires})
@@ -52,7 +54,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-Token': getCookie("csrf_"),
+                'X-CSRF-Token': csrf,
             },
             credentials: "same-origin",
             body: JSON.stringify({short})
@@ -83,22 +85,6 @@
         });
         app.$destroy();
         document.getElementById("copyText").innerText = "copied";
-    }
-
-    const getCookie = (cname) => {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for(let i = 0; i <ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
     }
 </script>
 

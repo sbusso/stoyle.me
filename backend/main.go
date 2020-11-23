@@ -16,21 +16,9 @@ import (
 
 func setupMiddlewares(app *fiber.App) {
 	app.Use(csrf.New(csrf.Config{
-		Next:           nil,
-		KeyLookup:      "",
-		CookieName:     "",
-		CookieDomain:   "",
-		CookiePath:     "",
 		CookieSecure:   true,
 		CookieHTTPOnly: true,
 		CookieSameSite: "strict",
-		Expiration:     0,
-		Storage:        nil,
-		ContextKey:     "",
-		KeyGenerator:   nil,
-		CookieExpires:  0,
-		Cookie:         nil,
-		TokenLookup:    "",
 	}))
 	app.Use(logger.New())
 }
